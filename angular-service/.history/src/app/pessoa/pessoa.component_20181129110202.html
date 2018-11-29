@@ -1,0 +1,17 @@
+<h1>Component Pessoa</h1>
+<hr>
+<h2>Lista de Pessoas Cadastradas</h2>
+<ul>
+  <li *ngFor="let n of nomes">{{ n }}</li>
+</ul>
+
+<table class="table">
+  <tr>
+    <th>Nome</th>
+    <th>E-mail</th>
+  </tr>
+  <tr *ngFor="let pes of pessoas">
+    <td>{{ pes?.nome }}</td>
+    <td>{{ pes?.email }}</td>
+  </tr>
+</table>

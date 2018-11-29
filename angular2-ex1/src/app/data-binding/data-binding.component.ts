@@ -12,16 +12,18 @@ import { Component } from '@angular/core';
       }
     `
   ],
-  styleUrls: [ 'data-binding.component.css' ]
+  styleUrls: ['data-binding.component.css']
 })
 export class DataBindingComponent {
   url = 'http://www.utfpr.edu.br';
   urlImg = 'http://lorempixel.com/400/200';
 
-  conteudoAtual : string = '';
-  conteudoSalvo : string = '';
+  conteudoAtual: string = '';
+  conteudoSalvo: string = '';
   isMouseover = false;
-  nome : string = '';
+  nome: string = '';
+
+  show: boolean = true; //Ex. Diretiva NgIf
 
   getValor() {
     return 1;
@@ -31,12 +33,12 @@ export class DataBindingComponent {
     alert('Botão clicado');
   }
 
-  onKeyup(event:KeyboardEvent) {
+  onKeyup(event: KeyboardEvent) {
     console.log(event);
-    this.conteudoAtual = (<HTMLInputElement> event.target).value;
+    this.conteudoAtual = (<HTMLInputElement>event.target).value;
   }
 
-  onSave(valor : string) {
+  onSave(valor: string) {
     this.conteudoSalvo = valor;
   }
 

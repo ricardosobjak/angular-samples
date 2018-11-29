@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import { Pessoa } from './pessoa.model';
 import { PessoasService } from './pessoas.service';
 
 @Component({
@@ -17,13 +18,26 @@ import { PessoasService } from './pessoas.service';
   templateUrl: 'pessoas.component.html',
   providers: [PessoasService]
 })
-
 export class PessoasComponent {
   nome = "Ricardo Sobjak";
-  pessoas : string[] = [];
+  pessoas: string[] = [];
+  pessoasRest: Pessoa[];
 
-  constructor(pessoasService: PessoasService) {
-    //pessoasService = new PessoasService();
+  constructor(private pessoasService: PessoasService) {
     this.pessoas = pessoasService.getPessoas();
+  }
+
+  ngOnInit() {
+    this.getAllItems();
+  }
+
+  private getAllItems(): void {
+    this.pessoasService
+      .getAll()
+      .subscribe(
+      (data: Pessoa[]) => this.pessoasRest = data, //Function for next element
+      (error) => console.log(error), //Error function
+      () => { console.log(this.pessoasRest); } //Complete function
+      );
   }
 }

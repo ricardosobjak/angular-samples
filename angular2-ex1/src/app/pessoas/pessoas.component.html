@@ -3,3 +3,9 @@
 <ul>
   <li *ngFor="let pessoa of pessoas">{{ pessoa }}</li>
 </ul>
+
+
+<table class="table">
+  <tr><th>ID</th><th>Nome</th><th>Nascimento</th></tr>
+  <tr *ngFor="let pessoa of pessoasRest"><td>{{pessoa.id}}</td><td>{{pessoa.nome}}</td><td>{{pessoa.dataNascimento}}</td></tr>
+</table>

@@ -6,10 +6,14 @@ import { PessoasComponent } from './pessoas/pessoas.component';
 @Component({
   selector: 'my-app',
   template: `
-      <h1>My First Angular App</h1>
-      <h2>Olá</h2>
+      <div class="jumbotron">
+        <h1>My First Angular App</h1>
+      </div>
+      <hr/>
       <meu-primeiro-componente></meu-primeiro-componente>
+      <hr/>
       <pessoa-list></pessoa-list>
+      <hr/>
       <exemplo-data-binding></exemplo-data-binding>
     `
 })
