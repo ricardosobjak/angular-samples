@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Angular</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" [routerLink]="['/databinding']" routerLinkActive="router-link-active" >Data binding</a>
+      <a class="nav-item nav-link" [routerLink]="['/form']" routerLinkActive="router-link-active" >Reactive Forms</a>
+      <a class="nav-item nav-link" [routerLink]="['/interaction']" routerLinkActive="router-link-active" >Component Interaction</a>
+    </div>
+  </div>
+</nav>
+
+<main class="p-5 bd-content" role="main">
+  <router-outlet></router-outlet>
+</main>

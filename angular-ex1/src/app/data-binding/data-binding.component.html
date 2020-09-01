@@ -1,0 +1,108 @@
+<h1 class="bd-title" id="content">Bindings</h1>
+<p class="bd-lead">
+    Exemplo de bindings no Angular: Property binding, Event binding, Two-way data binding, Class binding e Style
+    Binding. Veja mais em: <a target="_blank"
+        href="https://angular.io/guide/template-syntax">https://angular.io/guide/template-syntax</a>
+</p>
+<hr />
+<br />
+
+
+<section class="property-binding">
+    <h3>Interpolation</h3>
+    <p>String renderizada com Interpolação: {{ url }}</p>
+    <p>O resultado de 1 + 1 é {{ 1 + 1 }}</p>
+    <p>O resultado de 1 + 1 não é {{ 1 + 1 + getValor() }}</p>
+</section>
+
+<hr class="my-5" />
+
+<article>
+    <h3>Property Binding</h3>
+    <img src="{{ urlImg }}" />
+    <img [src]="urlImg" />
+    <img bind-src="urlImg" />
+</article>
+
+<hr class="my-5" />
+
+<article>
+    <h3>Class e Style Binding</h3>
+    <div>
+        Selecione uma classe
+        <select #classe (change)="0" class="form-control">
+            <option value="success">Sucesso</option>
+            <option value="info">Info</option>
+            <option value="warning">Alerta</option>
+            <option value="danger">Erro</option>
+        </select>
+        <br />
+
+        <div class="alert {{ 'alert-' + classe.value }}" role="alert">
+            Texto colorido conforme a opção desejada
+        </div>
+
+        <div class="alert" [class.alert-success]="classe.value == 'success'" role="alert">Sucesso</div>
+        <div class="alert" [class.alert-info]="classe.value == 'info'" role="alert">Info</div>
+        <div class="alert" [class.alert-warning]="classe.value == 'warning'" role="alert">Alerta</div>
+        <div class="alert" [class.alert-danger]="classe.value == 'danger'" role="alert">Erro</div>
+
+        <div style="display:none;" class="alert alert-danger" role="alert"
+            [style.display]="classe.value == 'danger' ? 'block' : 'none'">
+            Este componente só aparece em caso de erro
+        </div>
+    </div>
+</article>
+
+<hr class="my-5" />
+
+<section class="event-binding">
+    <article>
+        <h3>Event Binding</h3>
+        <div>
+            <div class="ml-5 mt-4">
+                <h5>Exemplo 1</h5>
+                <button class="btn btn-primary form-control" (click)="cliqueDoBotao()">Clique-me!</button>
+            </div>
+            <div class="ml-5 mt-4">
+                <h5>Exemplo 2</h5>
+                <input type="text" class="form-control" (keyup)="onKeyup($event)"
+                    (keyup.enter)="onSave($event.target.value)" (blur)="onSave(campo.value)" #campo>
+                <div>Conteúdo atual: {{ conteudoAtual }}</div>
+                <div>Conteúdo salvo: {{ conteudoSalvo }}</div>
+            </div>
+            <div class="ml-5 mt-4">
+                <h5>Exemplo 3</h5>
+                <span (mouseover)="onToggleHover()" (mouseout)="onToggleHover()" [class.highlight]="isMouseover">
+                    Passe o mouse sobre mim
+                </span>
+            </div>
+        </div>
+    </article>
+</section>
+
+<hr class="my-5" />
+
+<section class="two-way-binding">
+    <article>
+        <h3>Two Way Binding</h3>
+        <div>
+            <input type="text" class="form-control" [value]="nome" (input)="nome = $event.target.value" />
+            <input type="text" class="form-control" [ngModel]="nome" (ngModelChange)="nome = $event" />
+            <input type="text" class="form-control" [(ngModel)]="nome" />
+            <p>Você digitou {{ nome }}</p>
+        </div>
+    </article>
+</section>
+
+<hr class="my-5" />
+
+<section class="diretive-ngif">
+    <article>
+        <h3>Diretiva NgIf</h3>
+        <button class="btn btn-primary form-control" (click)="show = !show">{{show ? 'hide' : 'show'}}</button> show =
+        {{show}}
+        <br>
+        <div *ngIf="show">Mostrando o componente</div>
+    </article>
+</section>

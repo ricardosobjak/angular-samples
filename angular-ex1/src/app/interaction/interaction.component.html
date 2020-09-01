@@ -1,0 +1,10 @@
+<h1 class="bd-title" id="content">Interação entre componentes</h1>
+<p class="bd-lead">
+    Exemplo de comunicação entre componentes, nos quais dois componentes compartilham informações.
+    Uso de EventEmitter, Input e Output.
+</p>
+<br/>
+
+<app-spinner [value]="valorDoSpinner" (change)="changeValue($event); valorDoSpinner = $event"></app-spinner>
+
+<p>Valor do spinner: {{ valorDoSpinner }} </p>
